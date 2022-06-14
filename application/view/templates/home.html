@@ -1,0 +1,34 @@
+{% extends 'layout_base/base.html' %}
+
+{% block conteudo %}
+<div class="box-grande">
+  <div class="container">
+      {% if postagens %}
+      <div class="row">
+        {% for postagen in postagens %}
+      
+              <div class="col-md-7">
+                <div class="col-md-12">
+                  <a href="{{url_for('exibir_postagen')}}"> <h1>{{ postagen.get_titulo() }}</h1></a>
+              
+                  <p>{{ postagen.get_texto()|safe }}</p>
+               
+                </div>
+                <div class="col-md-12">
+                 <p>
+                  <span class="text-cat">Curtidas:{{ postagen.get_likes() }} </span>
+                  <span class="text-date"> Publicado: {{ postagen.get_data() }} </span> 
+                </p>
+                </div>
+              </div><!--end md-7-->
+        
+  
+        {% endfor %}
+        <p><a href="{{url_for('home')}}">Voltar </a></p> 
+        </div><!--end row -->
+      {% endif %}
+     
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout_base/base.html" %}
+{% block conteudo %}
+<div class="blog-largo">
+  <div class="container">
+
+    <div id="div1">
+      <h2>Nova Postagem</h2>
+    </div>
+    <!--end row-->
+    <main>
+      <div class="row">
+
+        <div class="col-md-4 ">
+          <div id="alerta"></div>
+          <h3 class="my">Postagem:</h3>
+          <form id="formulario" name="formulario" method="POST" action="{{url_for('Salvar')}}">
+
+            <div class="col-12">
+              <input type="hidden" name="id_usuario" value="122">
+              <label class="col-12">Titulo:</label>
+              <input type="text" id="titulo" name="titulo" class="form-control titulo" placeholder="titulo:">
+              <label class="col-12">Texto:</label>
+             <textarea id="texto" name="texto"  class="form-control text"  ></textarea>
+            <label class="col-12">Data Postagem:</label>
+             <input type="text" id="data_postagem" name="data_postagem" class="form-control data_postagem" placeholder="data_postagem:">
+             <label class="col-12">Like:</label>
+             <input type="text" id="like" name="like" class="form-control like" placeholder="like:">
+             
+            </div>
+
+            <button type="submit" style="background-color:blue;" class="btn btn-enviar" id="enviar" value="Enviar" >Enviar</button>
+
+          </form>
+        </div>
+        <div class="col-md-4"> </div>
+        <div class="col-md-4"> </div>
+
+
+      </div>
+    </main>
+  </div>
+  <!--end container-->
+</div>
+<!--end box-largo-->
+
+{% endblock %}
+{% block javascript %}
+<script language="Javascript">
+  function Curtir() {
+    alert("Curtida Salva");
+
+  };
+  function Descurtir(){
+    alert("Curtida Removida");
+  }
+</script>
+
+{% endblock javascript %}
